@@ -1,0 +1,16 @@
+.navbar{
+    background-color: beige;
+    padding: 10px;
+    border-radius: 5px;
+}
+.logo1 {
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width:767px) {
+    .navbar{
+        display: grid;
+
+    }
+}

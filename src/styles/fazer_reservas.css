@@ -1,0 +1,25 @@
+
+
+.conteiner-fund{
+    max-width: 1355px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(95, 198, 243);
+  }
+  .conteiner-pag{
+    background-image: url('../../public/images/paginaProj_WuldsonP3copia.jpg');
+    background-size: cover;
+    background-position: 40%;
+    border-radius: 8px;
+    max-width: 80%;
+    height: 90vh;
+    padding:20px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 1050px) {
+    .conteiner-pag{
+      background-position: 30%;
+    }
+  }
