@@ -80,7 +80,7 @@ export async function POST(req, res) {
 
     const { nome, email, idade, contato, mesa } = await req.json(); // Obtém dados do body
     const result = await client.query(
-      'INSERT INTO usuarios (nome, email, idade, contato, mesa, data_criacao) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *',
+      'INSERT INTO reserva (nome, email, idade, contato, mesa, data_criacao) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *',
       [nome, email, idade, contato, mesa]
     );
 
