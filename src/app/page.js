@@ -1,5 +1,5 @@
 
-import Inicio from '@/components/inicio/route'
+import Inicio from '@/app/inicio/page'
 
 //import Image from "next/image";
 import './globals.css';

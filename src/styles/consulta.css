@@ -1,0 +1,58 @@
+.conteiner-fund{
+    max-width: 1355px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(95, 198, 243);
+  }
+  .conteiner-pag{
+    background-color: rgb(210, 232, 252);
+    background-position: 0%;
+    border-radius: 8px;
+    max-width: 80%;
+    height: 90vh;
+    padding:20px;
+    margin: 0 auto;
+  }
+  .conteiner-consulta{
+    margin-top: 2%;
+    text-align: center;
+    height: 20%;
+  }
+  .tit-cons{
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .tit-res{
+    text-align: center;
+    font-size: large;
+    margin-top: 5%;
+  }
+  .inp-busca{
+    border: solid rgb(0, 102, 128);
+    width: 50%;
+    height: 50px;
+    border-radius: 30px;
+    text-indent: 5%;
+  }
+  .conteiner-lista{
+    border: solid rgb(6, 65, 90);
+    height: 40vh;
+    width: 70%;
+    margin: 0 auto;
+
+  }
+  .btn-busca {
+    background-color: #71a3ae;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 2%;
+}
+
+.btn-busca:hover {
+    background-color: #3cc0d2;
+}

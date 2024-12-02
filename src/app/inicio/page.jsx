@@ -1,4 +1,4 @@
-import Header from "../head_/route"
+import Header from "../../components/head_/route"
 import '@/styles/inicio.css';
 
 export default function Inicio(){
@@ -19,6 +19,17 @@ export default function Inicio(){
                         Encontre e reserve facilmente acomodações, passeios e experiências em poucos cliques.
                         Planeje sua viagem com praticidade e segurança, tudo em um só lugar!
                         </p>
+                    </div>
+                    <div className="conteiner-icon">
+                        <a href="">
+                            <img id="inst3" className='icones' src="/images/icones/inst3.png" alt="" />
+                        </a>
+                        <a href="">
+                            <img className="icones" src="/images/icones/facePreto.jpg" alt="" />
+                        </a>
+                        <a href="">
+                            <img className="icones" src="/images/icones/twitterX.jpg" alt="" />
+                        </a>
                     </div>
                 </div>
             </div>

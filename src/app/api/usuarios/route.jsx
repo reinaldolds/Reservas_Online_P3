@@ -68,17 +68,20 @@ import { Client } from 'pg';
 import DbConfig from '../../db';
 import { NextResponse } from 'next/server';
 
-export async function POST(req) {
+export async function POST(req, res) {
+
+  if(req.method === "POST"){
+    
   const client = new Client(DbConfig);
 
   try {
     await client.connect();
     console.log('Conectado ao banco de dados');
 
-    const { nome, email, senha } = await req.json(); // Obtém dados do body
+    const { nome, email, idade, contato, mesa } = await req.json(); // Obtém dados do body
     const result = await client.query(
-      'INSERT INTO usuarios (nome, email, senha, data_criacao) VALUES ($1, $2, $3, NOW()) RETURNING *',
-      [nome, email, senha]
+      'INSERT INTO usuarios (nome, email, idade, contato, mesa, data_criacao) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *',
+      [nome, email, idade, contato, mesa]
     );
 
     console.log('Usuário criado:', result.rows[0]);
@@ -97,4 +100,8 @@ export async function POST(req) {
     await client.end();
     console.log('Conexão encerrada');
   }
+ }else{
+  res.setHeader("Allow", ["POST"]);
+  res.status(405).json({error: `Método ${req.methed} não permitido.`})
+ }
 }

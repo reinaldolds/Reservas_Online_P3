@@ -17,9 +17,128 @@
     padding:20px;
     margin: 0 auto;
   }
+  .wel-titulo, .wel-tituloh1{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .wel-titulo{
+    color: rgb(26, 143, 179);
+  }
+  .wel-tituloh1{
+    font-size: 28px;
+  }
+
+  .form1{
+    width: 100%;
+    height: 76%;
+    border-radius: 15px;
+    display: grid;
+    background-color: rgba(79, 180, 214, 0.9);
+    padding: 5%;
+  }
+  .inpnome, .inpemail, .inpidade, .inpcontato, .item-reserva{
+    width: 80%;
+    height: 40px;
+    border-radius: 15px;
+    margin-left: 8%;
+    text-indent: 5%;
+  }
+  input::placeholder{
+    color: black;
+  }
+  .conteiner-reservas{
+    display: flex;
+    justify-content: space-around;
+    height: 90%;
+  }
+  .conteiner-re2{
+    width: 40%;
+  }
+  .conteiner-op{
+    display: inline;
+    border: solid rgb(49, 151, 191) 5px;
+    width: 50%;
+    height: 90%;
+    border-radius: 15px;
+    background-color: rgba(250, 245, 245, 0.9);
+  }
+  .but-form{
+    border: solid rgb(23, 113, 165);
+    width: 50%;
+    height: 50px;
+    margin-left: 22%;
+    border-radius: 20px;
+    color: aliceblue;
+    background-color: rgba(10, 3, 3, 0.7);
+  }
+  .but-form:hover{
+    background-color: rgba(10, 3, 3, 0.9);
+    
+  }
+  h4{
+    margin-left: 1%;
+    margin-top: 2%;
+  }
+  .icone-mesa{
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+
+  }
+  .dis-mesas{
+    margin-top: 3%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    margin-left: 5%;
+    font-size: large;
+    color: black;
+  }
+  .mesa-titulo{
+    margin-left: 5%;
+
+  }
+  .item-titulo{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 34px;
+  }
 
   @media screen and (max-width: 1050px) {
     .conteiner-pag{
       background-position: 30%;
     }
+  }
+  @media screen and (max-width: 780px) {
+
+    .conteiner-re2{
+      width: 90%;
+      margin-left: 5%;
+      gap: 4%;
+    }
+    .conteiner-op{
+      border: solid blue;
+      width: 90%;
+      margin-left: 5%;
+      gap: 4%;
+      margin-top: 5%;
+      
+    }
+    .conteiner-pag{
+      height: 180vh;
+    }
+    .form1{
+      height: 90%;
+    }
+    .conteiner-reservas{
+      display: grid;
+      height: 85%;
+      
+    }
+    .inpnome, .inpemail, .inpidade, .inpcontato, .item-reserva{
+      margin-bottom: 5%;
+    }
+    .conteiner-fund{
+      height: 190vh;
+    }
+
   }

@@ -24,10 +24,10 @@ export default function Header(){
   </div>
   <div className="flex-none">
     <span className='navega'>
-      <a className="btn btn-ghost text-lg" href="#">Home</a>
-      <Link className="btn btn-ghost text-lg" href="/components/fazer_reserva">Fazer Reservas</Link>
-      <a className="btn btn-ghost text-lg" href="#">Consultar</a>
-      <a className="btn btn-ghost text-lg" href="#">Sobre</a>
+      <Link className="btn btn-ghost text-lg" href="/inicio">Home</Link>
+      <Link className="btn btn-ghost text-lg" href="/reserva_">Fazer Reservas</Link>
+      <a className="btn btn-ghost text-lg" href="/consulta_">Consultar</a>
+      <Link className="btn btn-ghost text-lg" href="/sobre_">Sobre</Link>
 
     </span>
   </div>
