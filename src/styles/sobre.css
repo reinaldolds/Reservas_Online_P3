@@ -1,17 +1,100 @@
-.conteiner-fund{
+.conteiner-fund-sobre{
     max-width: 1355px;
     height: 100vh;
     margin: 0 auto;
     padding: 20px;
     background-color: rgb(95, 198, 243);
   }
-  .conteiner-pag{
+  .conteiner-pag-sobre{
     background-image: url('../../public/images/paginaProj_WuldsonP3copia.jpg');
     background-size: cover;
     background-position: 40%;
     border-radius: 8px;
     max-width: 80%;
-    height: 90vh;
+    height: 93vh;
     padding:20px;
     margin: 0 auto;
+  }
+
+  .conteiner-sobre{
+    background-color: rgba(216, 229, 240, 0.8);
+    width: 100%;
+  }
+ 
+  /*icones*/
+  .conteiner-icon-sobre{
+    margin-top: 2%;
+    padding: 0,8%;
+    width: 40%;
+    height: 30vh;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(242, 244, 245 );
+    border-radius: 0px;
+  }
+  .somos-sobre, .obj-sobre, .nomes-sobre{
+    margin-left: 1%;
+  }
+  .icones{
+    width: 40px;
+    height: 45px;
+    border-radius: 20px;
+  }
+  #inst3{
+    width: 50px;
+    height: 55px;
+    margin-top: -9%;
+  }
+  .icones:hover{
+    transition: all ease 0.3s;
+    width: 50px;
+    height: 50px;
+  }
+  #inst3:hover{
+  width: 60px;
+  height: 60px;
+  }
+  #contato-sobre{
+    background-color: rgb(247, 249, 250, 0.7);
+    height: 40vh;
+    
+  
+  }
+  .tit-sobre{
+    font-size: 20px;
+    font-family: cursive;
+  }
+  .tit-contato{
+    font-size: 20px;
+    font-family: cursive;
+  }
+
+  @media screen and (max-width: 920px){
+    .conteiner-icon-sobre{
+     height: 40%;
+    }
+
+    .conteiner-fund-sobre{
+      height: 120vh;
+      
+    }
+    .conteiner-pag-sobre{
+      height: 110vh;
+      overflow: hidden;
+    }
+    .conteiner-icon-sobre{
+      margin-left: 15px;
+    }
+    .icones{
+     
+      width: 30px;
+      height: 35px;
+      border-radius: 20px;
+    
+    }
+    #inst3{
+      width: 40px;
+      height: 40px;
+      margin-left: -3px;
+      }
   }

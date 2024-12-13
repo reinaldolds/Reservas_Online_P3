@@ -1,0 +1,131 @@
+
+
+meu projeto so tem 4 page, uma home mais visual, uma cadastrar 
+reserva com form para nome, email. idade, contato, mesa, 
+data_criação. Contudo, tem uma page de consulta que so tem 
+um input onde o usuario vai inserir algum dado ja cadastrado 
+para pesquisa dinâmica e quero adicionar uma trigger do postgres 
+nessa parte da page
+
+
+Criar uma tabela para logs de consultas
+Vamos criar uma tabela chamada consulta_logs para armazenar os 
+registros de consultas feitas:
+
+CREATE TABLE consulta_logs (
+    id SERIAL PRIMARY KEY,
+    termo_consultado VARCHAR(255) NOT NULL,
+    data_consulta TIMESTAMP DEFAULT NOW()
+);
+
+Criar uma função para a trigger
+A função executará o código que queremos que a trigger dispare, 
+por exemplo, armazenar o termo pesquisado na tabela de logs:
+
+CREATE OR REPLACE FUNCTION log_consulta()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Insere o termo consultado na tabela de logs
+    INSERT INTO consulta_logs (termo_consultado, data_consulta)
+    VALUES (NEW.termo_consultado, NOW());
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+Criar a trigger
+Agora, configuramos a trigger para executar a função toda vez 
+que um INSERT for feito na tabela relacionada às consultas:
+
+CREATE TRIGGER trigger_consulta
+AFTER INSERT ON usuarios -- ou na tabela em que as consultas serão feitas
+FOR EACH ROW
+EXECUTE FUNCTION log_consulta();
+
+
+2. Integração com a Página de Consulta Dinâmica
+
+api/consulta/route.jsx 
+
+ex: 
+import { Pool } from 'pg';
+
+const client = new Pool({
+  user: 'seu_usuario',
+  host: 'localhost',
+  database: 'seu_banco',
+  password: 'sua_senha',
+  port: 5432,
+});
+
+apartir da versão 14 nextjs não usa o res, no lugar usa-se o NextResponse
+
+export async function handler(req) {
+  if (req.method === 'GET') {
+    const { termo } = req.body; // Termo enviado pela consulta
+
+    try {
+      // Pesquisa dinâmica na tabela de usuários
+      const result = await client.query(
+        `SELECT * FROM usuarios WHERE nome ILIKE $1 OR email ILIKE $1`,
+        [`%${termo}%`]
+      );
+
+      // Retorna os resultados ao frontend
+      NextResponse.status(200).json(result.rows);
+    } catch (err) {
+      console.error(err);
+      NextResponse.status(500).json({ error: 'Erro na consulta' });
+    }
+  } else {
+    NextResponse.status(405).json({ error: 'Método não permitido' });
+  }
+}
+
+
+page.jsx ex:
+
+import { useState } from 'react';
+
+export default function Consulta() {
+  const [termo, setTermo] = useState('');
+  const [resultados, setResultados] = useState([]);
+
+  const handleSearch = async () => {
+    try {
+      const res = await fetch('/api/consulta', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ termo }),
+      });
+
+      const data = await res.json();
+      setResultados(data);
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
+    }
+  };
+
+  return (
+    <div>
+      <h1>Consulta Dinâmica</h1>
+      <input
+        type="text"
+        placeholder="Digite um nome ou email"
+        value={termo}
+        onChange={(e) => setTermo(e.target.value)}
+      />
+      <button onClick={handleSearch}>Pesquisar</button>
+
+      <ul>
+        {resultados.map((item) => (
+          <li key={item.id}>
+            {item.nome} - {item.email}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+
+

@@ -11,7 +11,7 @@ export default function Consulta() {
         if (!busca.trim()) return alert("Digite algo para buscar.");
 
         try {
-            const res = await fetch(`/api/reservas?query=${busca}`, { method: "GET" });
+            const res = await fetch(`/api/usuariosget?query=${busca}`, { method: "GET" });
             const data = await res.json();
 
             if (res.ok) {
@@ -44,7 +44,7 @@ export default function Consulta() {
 
                 <div className="conteiner-resultado">
                     <h3 className="tit-res">Resultado da Consulta</h3>
-                    <div className="conteiner-lista">
+                    <div className="conteiner-lista" style={{overflow: 'hidden'}}>
                         {resultado.length > 0 ? (
                             <ul className="lista-cons">
                                 {resultado.map((reserva, index) => (

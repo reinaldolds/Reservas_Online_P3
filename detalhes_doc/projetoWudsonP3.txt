@@ -1,0 +1,33 @@
+                      ideia de projeto BD avançado:
+Gerenciamento de Reservas (restaurante, local de esporte, hotels, etc.)
+Descrição:
+CRUD para gerenciar reservas em um restaurante ou evento com 
+campos como Nome do Cliente, Data da Reserva, Hora, e Número 
+de Pessoas.
+Pesquisa por nome do cliente ou data.
+
+Funcionalidades:
+Adicionar e excluir reservas.
+Pesquisa interativa por nome ou data.
+
+Desafios extras:
+Implementar verificação de conflitos de horário.
+Se tiver um botão para exportar para excel/csv, ficaria top.
+
+front-end: react
+back-end: node
+banco:postgresql
+
+OBS: primeiro fazer o principal para o projeto, se der tempo de
+incrementar o cadastro do cliente(ID,nome,email,idade,contato) e  
+cadastro de mesa(ID,numero da mesa,detalhes,valor)
+
+
+Página principal:
+
+Página de realizar reserva (form)
+
+Página de Buscar Reservas(pesquisa interativa por nome ou data)
+com uma tabela das reservas em baixo.
+
+Página de contato e redes social

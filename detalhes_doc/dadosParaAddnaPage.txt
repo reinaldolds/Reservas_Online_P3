@@ -1,0 +1,48 @@
+                       Ajuste de page reserva para criar tabela
+
+import { useState } from "react";
+
+export default function Home() {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
+
+  // Função para enviar os dados para a API
+  const criarTabela = async (e) => {
+    e.preventDefault(); // Evita recarregar a página
+
+    try {
+      const response = await fetch("/api/criar-tabela", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ nome, email }), // Dados que podem ser enviados, mas no caso da tabela não são necessários
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setMensagem(data.message);
+      } else {
+        const error = await response.json();
+        setMensagem(`Erro: ${error.error}`);
+      }
+    } catch (err) {
+      setMensagem("Erro ao conectar com o servidor.");
+      console.error(err);
+    }
+  };
+
+  return (
+    <div style={{ padding: "20px", maxWidth: "400px", margin: "auto" }}>
+      <h1>Criar Tabela</h1>
+      <form onSubmit={criarTabela}>
+        <button type="submit" style={{ padding: "10px", marginTop: "10px" }}>
+          Criar Tabela
+        </button>
+      </form>
+
+      {mensagem && <p>{mensagem}</p>}
+    </div>
+  );
+}

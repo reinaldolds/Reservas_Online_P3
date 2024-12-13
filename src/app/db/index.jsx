@@ -16,8 +16,8 @@ module.exports = {
 const DbConfig = {
     user: 'postgres',
     host: 'localhost', // ou o IP/host do seu banco de dados
-    database: 'reservas_online',
-    password: 'reinaldo1990', // Certifique-se de que é uma string válida
+    database: '',
+    password: '', // Certifique-se de que é uma string válida
     port: 5432, // Porta padrão do PostgreSQL
 };
 
